@@ -1,0 +1,46 @@
+﻿@model IntroToMVC.Models.Person
+<head>
+
+    <script>
+        var check = function() {
+        if (document.getElementById('password').value ==
+            document.getElementById('confirm_password').value) {
+            document.getElementById('message').style.color = 'green';
+            document.getElementById('message').innerHTML = 'Password Matches';
+        } else {
+            document.getElementById('message').style.color = 'red';
+            document.getElementById('message').innerHTML = 'Password Does Not Match';
+  }
+    </script>
+
+</head>
+
+<h1 class="register">Register</h1>
+<form action="Result" method="post">
+    <p>Please select your gender:</p>
+    <input type="radio" id="male" name="Gender" value="Male">
+    <label for="male">Male</label><br>
+    <input type="radio" id="female" name="Gender" value="Female">
+    <label for="female">Female</label><br>
+    <label for="Color">What is your favorite color?</label>
+    <select name="Color">
+        <option value=null>Select: </option>
+        <option value="Red">Red</option>
+        <option value="Green">Green</option>
+        <option value="Orange">Orange</option>
+        <option value="Blue">Blue</option>
+        <option value="Yellow">Yellow</option>
+        <option value="Pink">Pink</option>
+        <option value="Purple">Purple</option>
+    </select><br />
+    <label for="Username">Username: </label>
+    <input name="Username" type="text" placeholder="Enter a username" required/><br />
+    <label for="Email">Email: </label>
+    <input name="Email" type="email" placeholder="Enter an email address" required/><br />
+    <label for="Password">Password: </label>
+    <input name="Password" type="password" placeholder="Enter a password" id="password" onkeyup='check();' required/><br />
+    <label for="confirm_password">Confirm Password</label>
+    <input type="password" placeholder="Confirm Password" id="confirm_password" onkeyup='check();' required> 
+    <span id='message'></span><br />
+    <button type="submit">Save</button>
+</form>
